@@ -1,6 +1,7 @@
 package com.justinleesf.androidcalendar;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.CalendarView.OnDateChangeListener;
 import android.widget.Toast;
@@ -8,6 +9,7 @@ import android.app.Activity;
 
 public class AndroidCalendar extends Activity {
 	CalendarView calendar;
+	Button button;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +17,9 @@ public class AndroidCalendar extends Activity {
 
 		// sets the main layout of the activity
 		setContentView(R.layout.activity_main);
-
+		
+		initializeButton();
+		
 		// initializes the calendarview
 		initializeCalendar();
 	}
@@ -25,14 +29,21 @@ public class AndroidCalendar extends Activity {
 //			calendar.setShowWeekNumber(true);
 //		}
 //	}
+	
+	public void initializeButton() {
+		
+		button = (Button) findViewById(R.id.button1);
+		
+	}
 
 	public void initializeCalendar() {
 		calendar = (CalendarView) findViewById(R.id.calendar);
+		
 
 		// calendar.dateTextAppearance(5);
 
 		// sets whether to show the week number.
-		calendar.setShowWeekNumber(true);
+		calendar.setShowWeekNumber(false);
 
 		// sets the first day of week according to Calendar.
 		// here we set Monday as the first day of the Calendar

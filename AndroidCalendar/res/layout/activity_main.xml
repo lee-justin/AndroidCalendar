@@ -1,13 +1,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   	
     android:background="@color/grey"
     android:orientation="vertical" >
- 
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My birthdate" />
+
     <CalendarView
         android:id="@+id/calendar"
-        android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" /> 
+        android:layout_height="227dp"
+        android:layout_margin="10dp" />
+
 </LinearLayout>
