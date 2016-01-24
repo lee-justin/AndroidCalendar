@@ -1,13 +1,16 @@
 package com.justinleesf.androidcalendar;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.CalendarView.OnDateChangeListener;
+import android.widget.EditText;
 import android.widget.Toast;
 import android.app.Activity;
 
-public class AndroidCalendar extends Activity {
+public class AndroidCalendar extends Activity implements OnClickListener {
 	CalendarView calendar;
 	Button button;
 
@@ -17,28 +20,48 @@ public class AndroidCalendar extends Activity {
 
 		// sets the main layout of the activity
 		setContentView(R.layout.activity_main);
-		
-		initializeButton();
-		
+
 		// initializes the calendarview
 		initializeCalendar();
+
+		// initialize and cast all corresponding objects
+		Button enter = (Button) findViewById(R.id.button1);
+		enter.setOnClickListener(this);
+		Button clear = (Button) findViewById(R.id.button2);
+		clear.setOnClickListener(this);
+
+
 	}
 
-//	public void addEvents() {
-//		if (calendar.getDate() % 2 == 0) {
-//			calendar.setShowWeekNumber(true);
-//		}
-//	}
-	
-	public void initializeButton() {
+	@Override
+	public void onClick(View v) {
 		
-		button = (Button) findViewById(R.id.button1);
+		EditText input = (EditText) findViewById(R.id.editText1);
+		EditText output = (EditText) findViewById(R.id.editText2);
+
+		switch (v.getId()) {
+
+		case R.id.button1:
+			//EditText output = (EditText) findViewById(R.id.editText2);
 		
+			output.setText("hello justin");
+			break;
+
+		case R.id.button2:
+			
+			
+			output.setText("");
+
+			break;
+
+		default:
+			break;
+
+		}
 	}
 
 	public void initializeCalendar() {
 		calendar = (CalendarView) findViewById(R.id.calendar);
-		
 
 		// calendar.dateTextAppearance(5);
 
@@ -79,4 +102,5 @@ public class AndroidCalendar extends Activity {
 			}
 		});
 	}
+
 }
